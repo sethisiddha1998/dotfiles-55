@@ -1,0 +1,70 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# If you want to use GNOME config tools...
+#
+#if test -x /usr/lib/openbox/gnome-settings-daemon >/dev/null; then
+#  /usr/lib/openbox/gnome-settings-daemon &
+#elif which gnome-settings-daemon >/dev/null 2>&1; then
+#  gnome-settings-daemon &
+#fi
+
+# If you want to use XFCE config tools...
+#
+#xfce-mcs-manager &
+
+# set wallpaper
+nitrogen --restore &
+
+# for that awesome wal stuff
+#wal -i "$(< "${HOME}/.cache/wal/wal")"
+
+# polkit 
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# compositor  
+compton --config ~/.config/compton.conf -b &
+
+# panel
+tint2 -c ~/.config/tint2/my.tint2rc &
+tint2 -c ~/.config/tint2/tray.tint2rc &
+
+# numpad
+numlockx &
+
+# network manager
+nm-applet &
+
+# power manager
+xfce4-power-manager &
+
+# volume icon
+volumeicon &
+
+# volume keys daemon
+xfce4-volumed-pulse &
+
+# clipboard manager
+clipit &
+
+# dunst theme
+#sh ~/.config/openbox/scripts/waldunst.sh &
+
+# notifications
+#dunst &
+xfce4-notifyd &
+
+# pcmanfm daemon
+#pcmanfm -d &
+
+#thunar daemon
+thunar --daemon &
+
+# touchpad stuff
+#sh ~/.config/openbox/scripts/touchpad.sh &
+
+# urxvt daemon
+urxvtd &
