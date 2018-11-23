@@ -6,7 +6,7 @@ pkglsoff=~/.pacbac/pkgoff.lst
 pkglsloc=~/.pacbac/pkgloc.lst
 
 # Make backup dir
-mkdir ~/.pacbac
+mkdir -p ~/.pacbac
 
 # Exclude packages
 excldoff=()
