@@ -45,7 +45,7 @@ bindsym $mod+Shift+w exec --no-startup-id google-chrome-stable;workspace 2;focus
 bindsym $mod+Shift+f exec --no-startup-id thunar;workspace 3;focus
 
 ## start schrottify
-bindsym $mod+Shift+s exec --no-startup-id spotify;workspace 4;focus
+bindsym $mod+Shift+s exec --no-startup-id spotify;workspace 9;focus
 
 ## screenshot
 bindsym $mod+Print exec --no-startup-id 
