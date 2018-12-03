@@ -238,8 +238,8 @@ set_from_resource $cyan    color6      #5E8D87
 set_from_resource $grey    color7      #969CD3
 
 ## class                 bd    bg  txt    ind   child_bd
-client.focused          $fg   $fg  $bg    $bg   $fg
-client.unfocused        $bg   $bg  $fg    $bg   $bg
+client.focused          $fg   $fg  $bg    $bg   $blue
+client.unfocused        $bg   $bg  $fg    $bg   $purple
 client.focused_inactive $bg   $bg  $fg    $bg   $bg
 client.urgent           $red  $bg  $red   $red  $red
 client.placeholder      $bg   $bg  $bg    $bg   $bg
