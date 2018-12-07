@@ -52,7 +52,7 @@ bindsym $mod+Shift+s exec --no-startup-id spotify;workspace 9;focus
 bindsym $mod+Shift+a exec --no-startup-id atom;workspace 4:focus
 
 ## screenshot
-bindsym $mod+Print exec --no-startup-id 
+bindsym Print exec --no-startup-id ~/.bin/shot
 
 ## kill focused window
 #bindsym $mod+Shift+q kill
