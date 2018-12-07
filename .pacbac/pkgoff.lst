@@ -2,12 +2,14 @@ alsa-firmware
 alsa-utils
 arc-gtk-theme
 arc-icon-theme
+atom
 atool
 autoconf
 automake
 b43-fwcutter
 binutils
 bison
+ccache
 compton
 cups
 cups-filters
@@ -70,6 +72,7 @@ pamixer
 papirus-icon-theme
 patch
 pavucontrol
+perl-common-sense
 pkgconf
 polkit-gnome
 pulseaudio

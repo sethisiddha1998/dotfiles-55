@@ -16,9 +16,9 @@ Xft.lcdfilter: lcddefault
 
 #include ".colors/fantome"
 
----------------
+!--------------
 ! URxvt config
----------------
+!--------------
 
 !URxvt.font: xft:Iosevka Term:size=9:antialias=true
 !URxvt.font: -misc-fixed-medium-r-semicondensed--13-100-100-100-c-60-iso8859-1

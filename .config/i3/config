@@ -42,10 +42,14 @@ bindsym $alt+Tab exec --no-startup-id rofi -show window
 bindsym $mod+Shift+w exec --no-startup-id google-chrome-stable;workspace 2;focus
 
 ## start file manager
-bindsym $mod+Shift+f exec --no-startup-id thunar;workspace 3;focus
+bindsym $mod+Shift+f exec --no-startup-id urxvt -e ranger;workspace 3;focus
+bindsym $mod+Shift+t exec --no-startup-id thunar;workspace 3;focus
 
 ## start schrottify
 bindsym $mod+Shift+s exec --no-startup-id spotify;workspace 9;focus
+
+## start atom
+bindsym $mod+Shift+a exec --no-startup-id atom;workspace 4:focus
 
 ## screenshot
 bindsym $mod+Print exec --no-startup-id 
@@ -240,7 +244,7 @@ set_from_resource $grey    color7      #969CD3
 ## class                 bd    bg  txt    ind   child_bd
 client.focused          $fg   $fg  $bg    $bg   $blue
 client.unfocused        $bg   $bg  $fg    $bg   $purple
-client.focused_inactive $bg   $bg  $fg    $bg   $bg
+client.focused_inactive $bg   $bg  $fg    $bg   $purple
 client.urgent           $red  $bg  $red   $red  $red
 client.placeholder      $bg   $bg  $bg    $bg   $bg
 client.background       $bg

@@ -45,6 +45,7 @@
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/acbdc092b1ce7f09ea261a314320d376" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/move-to-trash" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/select-by-pattern" "<Primary>s")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/1fa618ee1381c4ab6db1c1afb575ebfd" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/duplicate" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/about" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/contents" "F1")

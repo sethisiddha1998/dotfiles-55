@@ -99,7 +99,7 @@ set linenumbers
 # set nopauses
 
 ## Do not automatically hard-wrap text.
-# set nowrap
+set nowrap
 
 ## Set operating directory.  nano will not read or write files outside
 ## this directory and its subdirectories.  Also, the current directory

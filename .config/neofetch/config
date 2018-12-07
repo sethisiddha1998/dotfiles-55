@@ -529,7 +529,7 @@ image_backend="w3m"
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
 # image_source=$HOME/.wall/
-image_source=$HOME/.wall/lock.jpg
+image_source=$HOME/.wall/wl4.png
 
 # Ascii Options
 
