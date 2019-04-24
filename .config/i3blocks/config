@@ -1,0 +1,231 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# background
+# border
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+#command=/usr/lib/i3blocks/$BLOCK_NAME
+command=/home/christian/.config/i3blocks/blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[keystate]
+color=#93e5cc
+label= 
+instance=caps
+interval=1
+
+#[keystate]
+#color=#93e5cc
+#label= 
+#instance=num
+#interval=1
+
+#[load]
+#label=
+#interval=10
+
+#[cpu]
+#label=
+#interval=2
+
+#[trash]
+#label=
+#interval=10
+
+[weather]
+instance=2910831
+interval=60
+
+[network]
+color=#b48ead
+label= 
+instance=enp4s0f2
+interval=10
+
+[network]
+color=#b48ead
+label= 
+instance=wlp6s0
+interval=10
+
+[audio]
+color=#81a1c1
+label= 
+interval=5
+
+[battery]
+color=#ebcb8b
+label= 
+instance=0
+interval=5
+
+[date]
+color=#bf616a
+label= 
+interval=5
+
+[time]
+color=#a3be8c
+label= 
+interval=5
+
+#[bandwidth]
+#instance=wlp6s0;in
+#label=
+#interval=1
+
+#[bandwidth]
+#instance=wlp6s0;out
+#label=
+#interval=1
+
+#[bluetooth]
+#label=
+#interval=10
+
+#[brightness]
+#label=
+#interval=5
+
+#[countdown]
+#instance=tomorrow 05:00:00
+#label=
+#interval=1
+
+
+
+#[display]
+#label=
+#interval=5
+
+#[feed]
+#instance=http://goo.gl/bR2hcp
+#label=
+#interval=60
+
+#[firewall]
+#label=
+#interval=10
+
+#[ip-address]
+#label=
+#interval=60
+
+#[launcher]
+#label=
+#interval=once
+
+
+
+#[locale]
+#label=
+#interval=once
+
+#[mail]
+#label=
+#instance=~/.gmx-private
+#interval=60
+
+#[memory]
+#label=
+#instance=mem;free
+#interval=30
+
+#[memory]
+#label=
+#instance=swap;total
+#interval=3
+
+#[microphone]
+#label=
+#interval=5
+
+#[packages]
+#label=
+#interval=300
+
+#[playerctl]
+#label=
+#instance=rhythmbox
+#interval=5
+
+#[process]
+#instance=http
+#label=
+#interval=10
+
+#[space]
+#label=
+#interval=30
+
+#[space]
+#label=
+#instance=/pub
+#interval=30
+
+#[ssid]
+#label=
+#interval=60
+
+#[temperature]
+#instance=Core
+#label=
+#interval=5
+
+#[user]
+#label=
+#interval=once
+
+#[vpn]
+#label=
+#interval=5
+
+#[webcam]
+#label=
+#interval=5
+
+#[usb]
+#instance=PhotoSmart
+#label=
+#interval=10
+
+
+
+#[cmus]
+#command=/home/christian/.config/i3blocks/blocks/scroll $BLOCK_NAME
+#label=
+#markup=pango
+#interval=repeat
+
+#[window]
+#command=/home/christian/.config/i3blocks/blocks/scroll $BLOCK_NAME
+#label=
+#markup=pango
+#interval=repeat
+
+#[keymap]
+#label=
+#interval=10

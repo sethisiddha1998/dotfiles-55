@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# create dir for git bare repo
+git init --bare $HOME/.dirty-dotfiles
+
+# create alias - use "dots" instead of "git" to interact
+alias dots='/usr/bin/git --git-dir=$HOME/.dirty-dotfiles/ --work-tree=$HOME'
+
+# set flag to hide not explicitly tracked files
+dots config --local status.showUntrackedFiles no
+
+# add alias to .bashrc
+echo "alias dots='/usr/bin/git --git-dir=$HOME/.dirty-dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc

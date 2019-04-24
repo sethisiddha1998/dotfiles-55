@@ -1,0 +1,34 @@
+[core]
+	editor = nano
+[user]
+	signingkey = 313858BD269FBEC7
+	name = crian
+	email = crian84@gmail.com
+[push]
+	default = simple
+[color]
+	ui = auto
+[commit]
+	gpgsign = true
+[format]
+	signoff = true
+[credential]
+	helper = cache --timeout=3000
+[alias]
+	a = add
+	aa = add -A
+	c = commit -s
+	cp = cherry-pick --signoff
+	cpa = cherry-pick --abort
+	cpc = cherry-pick --continue
+	d = diff
+	rh = reset --hard
+	m = merge --signoff
+	ma = merge --abort
+	mc = merge --continue
+	p = push
+	pf = push --force
+	pr = pull --rebase
+	s = status
+[http]
+	postBuffer = 524288000
