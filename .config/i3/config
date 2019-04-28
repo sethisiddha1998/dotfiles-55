@@ -36,10 +36,11 @@ exec_always --no-startup-id fix_xcursor
 
 ## start terminal
 # bindsym $mod+Return exec --no-startup-id urxvt
-bindsym $mod+Return exec --no-startup-id ~/.bin/i3term
+bindsym $mod+Return exec --no-startup-id ~/.bin/i3urxvt
 
 ## start alternative terminal
-bindsym $mod+Shift+Return exec --no-startup-id termite
+# bindsym $mod+Shift+Return exec --no-startup-id termite
+bindsym $mod+Shift+Return exec --no-startup-id ~/.bin/i3termite
 
 ## start rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
