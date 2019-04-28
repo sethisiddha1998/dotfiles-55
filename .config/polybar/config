@@ -130,7 +130,7 @@ ramp-signal-2 =   
 ramp-signal-3 =   
 ramp-signal-4 =   
 ramp-signal-5 =   
-ramp-signal-foreground = ${colors.magenta}
+ramp-signal-foreground = ${colors.cyan}
 
 [module/eth]
 type = internal/network
@@ -153,7 +153,7 @@ label = " %date%"
 date = %Y-%m-%d
 date-alt = %A
 format-prefix = 
-format-prefix-foreground = ${colors.red}
+format-prefix-foreground = ${colors.cyan}
 
 [module/time]
 type = internal/date
@@ -168,9 +168,9 @@ format-prefix-foreground = ${colors.cyan}
 type = internal/volume
 format-volume = <label-volume> <bar-volume>
 label-volume = " "
-label-volume-foreground = ${colors.blue}
+label-volume-foreground = ${colors.cyan}
 format-muted-prefix = " "
-format-muted-foreground = ${colors.blue}
+format-muted-foreground = ${colors.cyan}
 label-muted = Muted
 label-muted-foreground= ${colors.foreground-alt}
 bar-volume-width = 6
@@ -197,7 +197,7 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.yellow}
+ramp-capacity-foreground = ${colors.cyan}
 
 [module/temperature]
 type = internal/temperature
