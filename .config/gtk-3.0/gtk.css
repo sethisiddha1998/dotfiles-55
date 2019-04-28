@@ -1,0 +1,10 @@
+.window-frame {
+  box-shadow: none;
+  margin: 0;
+}
+
+VteTerminal, vte-terminal {
+	padding: 10px 10px 10px 10px;
+}
+
+/*  padding: top, right, bottom, left*/
