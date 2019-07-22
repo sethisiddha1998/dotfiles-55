@@ -1,0 +1,48 @@
+#! /bin/bash
+
+print_power() {
+  status="$(cat /sys/class/power_supply/AC/online)"
+  battery="$(cat /sys/class/power_supply/BAT0/capacity)"
+  timer="$(acpi -b | grep "Battery" | awk '{print $5}' | cut -c 1-5)"
+  if [ "${status}" == 1 ]; then
+    echo -ne " ${battery}% "
+  else
+    echo -ne " ${battery}%"
+  fi
+}
+
+print_wifiqual() {
+  wifissid="$(nmcli -t -f NAME connection show --active)"
+  wifiperc="$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70) "%" }')"
+  echo -ne "${wifiperc} ${wifissid}"
+}
+
+print_volume(){
+    mix=`amixer get Master | tail -1`
+    vol="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
+    if [[ $mix == *\[off\]* ]]; then
+      echo -e " Muted"
+    elif [[ $mix == *\[on\]* ]]; then
+      echo -e " ${vol}%"
+    else
+      echo -e "VOL: ---"
+    fi
+}
+
+print_date() {
+  date="$(date "+%a %d %b")"
+  echo -ne " ${date}"
+}
+
+print_time() {
+  time="$(date "+%H:%M")"
+  echo -ne " ${time}"
+}
+
+while true; do
+  # Pipe to status bar, not indented due to printing extra spaces/tabs
+  xsetroot -name " $(print_wifiqual) | $(print_power) | $(print_volume) | $(print_date) | $(print_time) "
+  # loop stats every 1 second
+  sleep 1
+ done
+ 
