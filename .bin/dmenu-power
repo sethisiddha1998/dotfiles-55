@@ -1,15 +1,20 @@
 #!/bin/sh
 
-case "$(echo -e "Shutdown\nRestart\nLogout\nSuspend\nLock" | dmenu \
-    -nb "${COLOR_BACKGROUND:-#151515}" \
-    -nf "${COLOR_DEFAULT:-#aaaaaa}" \
-    -sf "${COLOR_HIGHLIGHT:-#589cc5}" \
-    -sb "#1a1a1a" \
-    -b -i -p \
-    "Power:" -l 5)" in
-        Shutdown) exec systemctl poweroff;;
-        Restart) exec systemctl reboot;;
-        Logout) kill -HUP $XDG_SESSION_PID;;
-        Suspend) exec systemctl suspend;;
-        Lock) exec systemctl --user start lock.target;;
-esac
+DIALOG_RESULT=$(echo -e 'lock\nreboot\npoweroff\nexit' | dmenu -x "22" -y "27" -wi "125" -i -p "Power:" -l "4" )
+
+echo "This result is : $DIALOG_RESULT"
+sleep 1;
+
+if [ "$DIALOG_RESULT" = "lock" ];
+then
+    exec ~/.bin/lock
+elif [ "$DIALOG_RESULT" = "reboot" ];
+then
+    exec systemctl reboot
+elif [ "$DIALOG_RESULT" = "poweroff" ];
+then
+    exec systemctl poweroff
+elif [ "$DIALOG_RESULT" = "exit" ];
+then
+    exit 0
+fi
