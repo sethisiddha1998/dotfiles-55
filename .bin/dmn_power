@@ -1,6 +1,13 @@
 #!/bin/sh
 
-DIALOG_RESULT=$(echo -e 'lock\nreboot\npoweroff\nexit' | dmenu -x "22" -y "27" -wi "125" -i -p "Power:" -l "4" )
+set -- $(dimensions) "$@"
+w=$(echo "$1 / 3" | bc)
+x=$(( $1 / 2 - $w / 2 ))
+y=$(( $2 / 5 ))
+h=$(( $2 / 50 ))
+font="tewi:size=9:antialias=true:autohint=true"
+
+DIALOG_RESULT=$(echo -e 'lock\nreboot\npoweroff\nexit' | dmenu -fn "$font" -x "$x" -y "$y" -wi "$w" -l "$h" -i -f -p "Power:" )
 
 echo "This result is : $DIALOG_RESULT"
 sleep 1;
