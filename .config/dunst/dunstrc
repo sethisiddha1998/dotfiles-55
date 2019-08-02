@@ -1,7 +1,7 @@
 [global]
     monitor = 0
     follow = mouse
-    geometry = "320x5-10+32"
+    geometry = "250x5-10+32"
     indicate_hidden = yes
     shrink = no
     transparency = 0
@@ -10,11 +10,10 @@
     padding = 30
     horizontal_padding = 30
     frame_width = 1
-    frame_color = "#d8dee8"
     separator_color = frame
     sort = yes
     idle_threshold = 120
-    font = Roboto Mono Medium 9
+    font = tewi 9
     line_height = 0
     markup = full
     format = "<span foreground='#b3bdcb'>%s %p</span>\n%b"
@@ -29,11 +28,10 @@
     icon_position = left
     max_icon_size = 32
     icon_path = /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
-    # icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
     sticky_history = yes
     history_length = 20
     always_run_script = true
-    startup_notification = false
+    startup_notification = yes
     verbosity = mesg
     corner_radius = 0
     force_xinerama = false
@@ -48,18 +46,20 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#2e3440"
-    foreground = "#d8dee9"
+    background = "#1c1b1a"
+    foreground = "#f8f6f2"
+    frame_color = "#aeee00"
     timeout = 10
 
 [urgency_normal]
-    background = "#2e3440"
-    foreground = "#d8dee9"
+    background = "#1c1b1a"
+    foreground = "#f8f6f2"
+    frame_color = "#aeee00"
     timeout = 10
 
 [urgency_critical]
-    background = "#2e3440"
-    foreground = "#ffffff"
-    frame_color = "#bf616a"
+    background = "#ff2c4b"
+    foreground = "#1c1b1a"
+    frame_color = "#ff2c4b"
     timeout = 0
-    icon = /usr/share/icons/Papirus/22x22/status/dialog-error.svg
+    #icon = /usr/share/icons/Papirus/22x22/status/dialog-error.svg
