@@ -30,7 +30,7 @@ export FFF_CD_ON_EXIT=1
 # Trash Directory
 # Default: '${XDG_DATA_HOME}/fff/trash'
 #          If not using XDG, '${XDG_DATA_HOME}/fff/trash' is used.
-#export FFF_TRASH=~/.local/share/fff/trash
+export FFF_TRASH=~/.local/share/Trash/files
 
 # Trash Command
 # Default: 'mv'
