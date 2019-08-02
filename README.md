@@ -3,13 +3,12 @@
 ## Setup
 
 - Operating System: `arch`
-- Window Manager: `dwm`
+- Window Manager: `dwm, cwm`
 - Shell: `bash`
-- Display Manager: `lightdm`
-- Terminal Emulator: `st, urxvt`
-- File Manager: `fff, pcmanfm`
-- Application Launcher: `rofi, dmenu`
+- Terminal Emulator: `st, alacritty`
+- File Manager: `fff, pcmanfm, ranger`
+- Application Launcher: `dmenu`
 - Compositor: `compton`
-- Bar: `dwm bar script, polybar`
+- Bar: `dwm bar script, lemonbar,  polybar`
 - Notification: `dunst`
-- Text Editor: `micro, code`
+- Text Editor: `micro, nvim, code`
