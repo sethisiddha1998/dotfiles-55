@@ -15,7 +15,7 @@
     "filemanager-showdotfiles": true,
     "filemanager-showignored": true,
     "ftoptions": true,
-    "hidehelp": false,
+    "hidehelp": true,
     "ignorecase": false,
     "indentchar": " ",
     "infobar": true,
@@ -25,6 +25,7 @@
     "literate": true,
     "matchbrace": false,
     "matchbraceleft": false,
+    "misspell": true,
     "mouse": true,
     "pluginchannels": [
         "https://raw.githubusercontent.com/micro-editor/plugin-channel/master/channel.json"
