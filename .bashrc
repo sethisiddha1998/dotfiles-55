@@ -11,7 +11,11 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.bin:$HOME/.scripts:$PATH
 # completion
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
-# include fff config
+# defaults
+export EDITOR="micro"
+export TERMINAL="alacritty"
+
+# fff config
 if [ -f $HOME/.config/fff/config ]; then
     . $HOME/.config/fff/config
 fi
@@ -27,10 +31,6 @@ bind "set mark-symlinked-directories on"
 bind '"\e[C": forward-char'
 bind '"\e[D": backward-char'
 
-# defaults
-export EDITOR="micro"
-export TERMINAL="st"
-
 # gpg pw on term
 export GPG_TTY=$(tty)
 
@@ -42,7 +42,7 @@ shopt -s histappend
 shopt -s expand_aliases
 shopt -s checkwinsize
 shopt -s globstar 2> /dev/null
-shopt -s nocaseglob;
+shopt -s nocaseglob
 shopt -s autocd 2> /dev/null
 shopt -s dirspell 2> /dev/null
 shopt -s cdspell 2> /dev/null
@@ -65,21 +65,19 @@ PROMPT_COMMAND='history -a'
 HISTTIMEFORMAT='%F %T '
 
 # prompt
-export PS1="\W \[$(tput setaf 4)\]➜  \[$(tput sgr0)\]"
+#export PS1="➜  \[$(tput setaf 4)\]\W\[$(tput sgr0)\] "
+export PS1='\W \[\e[34m\] \[\e[0m\]'
 
 # ow & tw dir color
 export LS_COLORS="$LS_COLORS:ow=1;35:tw=1;35:"
 
-# squash theming script
-export PATH=~/.gitpkgs/squash:$PATH
-
 # alias
 alias e="$EDITOR"
 alias sb="source ~/.bashrc"
+alias ls="lsd"
 alias la="ls -A"
 alias ll="ls -lA"
-alias ls="ls -hN --color=auto --group-directories-first"
-alias grep="grep --colour=auto"
+alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias cp="cp -i"
 alias df="df -h"
