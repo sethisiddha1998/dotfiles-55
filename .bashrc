@@ -13,7 +13,7 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.bin:$HOME/.scripts:$PATH
 
 # defaults
 export EDITOR="micro"
-export TERMINAL="alacritty"
+export TERMINAL="st"
 
 # fff config
 if [ -f $HOME/.config/fff/config ]; then
