@@ -20,10 +20,28 @@ Xft.lcdfilter: lcddefault
 ! st config
 !-----------
 
-*.font: tewi:size=9:antialias=true:autohint=true
-*.fontalt0:
-*.fontalt1:
-*.alpha: 1
+st.font: tewi:size=9:antialias=true:autohint=true
+st.fontalt0: RobotoMono Nerd Font:size=9:antialias=true:autohint=true
+st.alpha: 1
+
+!--------------
+! xterm config
+!--------------
+
+XTerm.termName: xterm-256color
+XTerm.vt100.locale: true
+XTerm.vt100.metaSendsEscape: true
+XTerm.v100.saveLines: 15000
+XTerm.vt100.scrollBar: false
+XTerm.vt100.geometry: 80x24
+XTerm.vt100.selectToClipboard: true
+XTerm.vt100.faceName: tewi:size=9:antialias=true:autohint=true
+XTerm.allowBoldFonts: false
+XTerm.borderWidth: 0
+XTerm.internalBorder: 10
+XTerm.vt100.bellIsUrgent: true
+XTerm.cutToBeginningOfLine: false
+XTerm.cutNewline: false
 
 !-------------
 ! ROFI config
