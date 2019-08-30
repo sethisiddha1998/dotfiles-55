@@ -7,7 +7,7 @@ y=$(( $2 / 5 ))
 h=$(( $2 / 50 ))
 font="tewi:size=9:antialias=true:autohint=true"
 
-DIALOG_RESULT=$(echo -e 'lock\nreboot\npoweroff\nexit' | dmenu -fn "$font" -x "$x" -y "$y" -wi "$w" -l "$h" -i -f -p "Power:" )
+DIALOG_RESULT=$(echo -e 'lock\nlogout\nreboot\npoweroff\nexit' | dmenu -fn "$font" -x "$x" -y "$y" -wi "$w" -l "$h" -i -f -p "Power:" )
 
 echo "This result is : $DIALOG_RESULT"
 sleep 1;
@@ -15,6 +15,9 @@ sleep 1;
 if [ "$DIALOG_RESULT" = "lock" ];
 then
     exec ~/.bin/lock
+elif [ "$DIALOG_RESULT" = "logout" ];
+then
+    exec killall xinit
 elif [ "$DIALOG_RESULT" = "reboot" ];
 then
     exec systemctl reboot
