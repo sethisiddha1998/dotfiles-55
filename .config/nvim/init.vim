@@ -20,6 +20,11 @@ Plug 'severin-lemaignan/vim-minimap'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
+" NERDTree Plugin
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let g:NERDTreeShowHidden=1
+
 " Lightline Plugin
 let g:lightline = {
       \ 'colorscheme': 'badwolf',
@@ -31,7 +36,7 @@ colorscheme badwolf
 set termguicolors
 
 " Map leader to
-let mapleader=' '
+let mapleader=','
 
 " Encoding
 set encoding=utf-8
@@ -50,26 +55,14 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Visual settings
+" syntax highlighting
 syntax on
+
+" line numbers
 set number
 
-" Clipboard copy/paste/cut
-if has ('unnamedplus')
-	set clipboard=unnamed,unnamedplus
-endif
-
-" Copy to clipboard
-vnoremap <leader>y "+y
-nnoremap <leader>Y "+yg_
-nnoremap <leader>y "+y
-nnoremap <leader>yy "+yy
-
-" Paste from clipboard
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
+" line & column dispaly
+set ruler
 
 " Status bar
 set laststatus=2
@@ -90,4 +83,25 @@ set noswapfile
 
 " Mouse support
 set mouse=a
+
+" split to right & below
+set splitright
+set splitbelow
+
+" Clipboard copy/paste/cut
+if has ('unnamedplus')
+	set clipboard=unnamed,unnamedplus
+endif
+
+" Copy to clipboard
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+yg_
+nnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+
+" Paste from clipboard
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
 
