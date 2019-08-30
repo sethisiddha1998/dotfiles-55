@@ -34,10 +34,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# start cwm
-#~/.config/cwm/autostart.sh &
-#exec cwm -c ~/.config/cwm/cwmrc
+# remap caps to esc
+setxkbmap -option caps:escape
 
-# start wm
-exec dwm
+# start bspwm
 #exec bspwm
+
+# start cwm
+~/.config/cwm/autostart.sh &
+exec cwm -c ~/.config/cwm/cwmrc
+
+# start dwm
+#exec dwm
