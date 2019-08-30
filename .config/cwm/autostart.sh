@@ -6,4 +6,4 @@ nitrogen --restore &
 #hsetroot -add '#161821' -add '#6b7089' -gradient -45 &
 nm-applet &
 dunst &
-~/.config/cwm/bar &
+~/.config/cwm/lemonbar/bar &
