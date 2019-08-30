@@ -12,7 +12,8 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.bin:$HOME/.scripts:$PATH
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 # defaults
-export EDITOR="micro"
+export VISUAL="nvim"
+export EDITOR="nvim"
 export TERMINAL="st"
 
 # fff config
@@ -20,14 +21,22 @@ if [ -f $HOME/.config/fff/config ]; then
     . $HOME/.config/fff/config
 fi
 
+# fzf
+. /usr/share/fzf/key-bindings.bash
+. /usr/share/fzf/completion.bash
+
+export FZF_DEFAULT_COMMAND='fd --type f --color=never'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d . --color=never'
+
 # binds
 bind Space:magic-space
 bind "set completion-ignore-case on"
 bind "set completion-map-case on"
 bind "set show-all-if-ambiguous On"
 bind "set mark-symlinked-directories on"
-#bind '"\e[A": history-search-backward'
-#bind '"\e[B": history-search-forward'
+bind '"\e[5~": history-search-backward'
+bind '"\e[6~": history-search-forward'
 bind '"\e[C": forward-char'
 bind '"\e[D": backward-char'
 
