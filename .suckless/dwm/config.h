@@ -6,17 +6,26 @@ static const unsigned int gappx       = 10;  /* gaps between windows */
 static const unsigned int snap        = 32;  /* snap pixel */
 static const int showbar              = 1;   /* 0 means no bar */
 static const int topbar               = 1;   /* 0 means bottom bar */
-static const char *fonts[]            = { "monospace:size=10" };
-static const char dmenufont[]         = "monospace:size=10";
-static const char normfgcolor[]       = "#D8DEE9";
-static const char normbgcolor[]       = "#2E3440";
-static const char normbordercolor[]   = "#3B4252";
-static const char selfgcolor[]        = "#D8DEE9";
-static const char selbgcolor[]        = "#5e81ac";
-static const char selbordercolor[]    = "#5e81ac";
-static const char titlefgcolor[]      = "#D8DEE9";
-static const char titlebgcolor[]      = "#2E3440";
-static const char titlebordercolor[]  = "#2E3440";
+static const int horizpadbar          = 0;   /* horizontal padding for statusbar */
+static const int vertpadbar           = 8;   /* vertical padding for statusbar */
+static const char *fonts[]            = {
+    "crisp:size=12:antialias=true:autohint=true",
+    "siji:size=12:antialias=true:autohint=true"
+};
+static const char dmenufont[]         = "crisp:size=12:antialias=true:autohint=true";
+static const char normfgcolor[]       = "#f8f6f2";
+static const char normbgcolor[]       = "#1c1b1a";
+static const char normbordercolor[]   = "#1c1b1a";
+static const char selfgcolor[]        = "#0a9dff";
+static const char selbgcolor[]        = "#1c1b1a";
+static const char selbordercolor[]    = "#0a9dff";
+static const char titlefgcolor[]      = "#f8f6f2";
+static const char titlebgcolor[]      = "#1c1b1a";
+static const char titlebordercolor[]  = "#1c1b1a";
+static const char col_black[]         = "#141413";
+static const char col_red[]           = "#ff2c4b";
+static const char col_yellow[]        = "#fade3e";
+static const char col_white[]         = "#d9cec3";
 static const unsigned int baralpha    = OPAQUE;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]        = {
@@ -24,16 +33,20 @@ static const char *colors[][3]        = {
 	[SchemeNorm]  = { normfgcolor, normbgcolor, normbordercolor },
 	[SchemeSel]   = { selfgcolor, selbgcolor, selbordercolor },
 	[SchemeTitle] = { titlefgcolor, titlebordercolor, titlebordercolor },
+	[SchemeWarn]  =	{ selfgcolor, normbgcolor, normbordercolor },
+	[SchemeUrgent]=	{ col_white, col_red,    col_red },
 };
 static const unsigned int alphas[][3]      = {
 	/*                fg      bg        border     */
 	[SchemeNorm]  = { OPAQUE, baralpha, borderalpha },
 	[SchemeSel]   = { OPAQUE, baralpha, borderalpha },
 	[SchemeTitle] = { OPAQUE, baralpha, borderalpha },
+	[SchemeWarn]  = { OPAQUE, baralpha, borderalpha },
+	[SchemeUrgent]= { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -53,14 +66,14 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 #include "gaplessgrid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[]",      tile },    /* first entry is default */
+	{ "[]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ "###",      gaplessgrid },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
+	{ "[]",      gaplessgrid },
+	{ "[]",      bstack },
+	{ "[]",      bstackhoriz },
+	{ "[]",      centeredmaster },
+/*	{ ">M>",      centeredfloatingmaster }, */
 	{ NULL,       NULL },
 };
 
@@ -77,28 +90,29 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmn_run", dmenumon, NULL };
+static const char *dmenupwr[] = { "dmn_power", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
-static const char *file[] = { "st", "-c", "fff", "-e", "fff", NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "70x20", NULL };
+static const char *surf[] = { "tabbed", "-d", "-c", "surf", "-e", NULL };
 static const char *chrome[] = { "google-chrome-stable", "--new-window", NULL };
-static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
 static const char *mutecmd[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
 static const char *volupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
+static const char *briupcmd[] = { "xbacklight", "-inc", "10", NULL };
+static const char *bridowncmd[] = { "xbacklight", "-dec", "10", NULL };
 
-#include "selfrestart.c"
 #include <X11/XF86keysym.h>
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_Escape, spawn,          {.v = dmenupwr } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_s,      togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = file } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = surf } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = chrome } },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
@@ -110,7 +124,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -129,9 +143,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_Escape, quit,           {0} },
-	{ MODKEY,                       XK_Escape, spawn,          SHCMD("exec ~/.bin/dmenu-power") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -144,6 +156,8 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMute,        spawn, {.v = mutecmd } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
+	{ 0,                            XF86XK_MonBrightnessUp,  spawn, {.v = briupcmd } },
+	{ 0,                            XF86XK_MonBrightnessDown,spawn, {.v = bridowncmd } },
 };
 
 /* button definitions */
@@ -162,3 +176,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
