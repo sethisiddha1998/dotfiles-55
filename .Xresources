@@ -20,57 +20,21 @@ Xft.lcdfilter: lcddefault
 ! st config
 !-----------
 
-st.font: tewi:size=9:antialias=true:autohint=true
-st.fontalt0: RobotoMono Nerd Font:size=9:antialias=true:autohint=true
-st.alpha: 1
+st*font: crisp:size=12:antialias=true:autohint=true
+st*fontalt0: siji:size=12:antialias=true:autohint=true
+st*fontalt1: RobotoMono Nerd Font:size=12:antialias=true:autohint=true
+st*alpha: 1
 
 !--------------
 ! xterm config
 !--------------
 
-XTerm.termName: xterm-256color
-XTerm.vt100.locale: true
-XTerm.vt100.metaSendsEscape: true
-XTerm.v100.saveLines: 15000
-XTerm.vt100.scrollBar: false
-XTerm.vt100.geometry: 80x24
-XTerm.vt100.selectToClipboard: true
-XTerm.vt100.faceName: tewi:size=9:antialias=true:autohint=true
-XTerm.allowBoldFonts: false
-XTerm.borderWidth: 0
-XTerm.internalBorder: 10
-XTerm.vt100.bellIsUrgent: true
-XTerm.cutToBeginningOfLine: false
-XTerm.cutNewline: false
-
-!-------------
-! ROFI config
-!-------------
-
-rofi.modi:                           drun,run
-rofi.sidebar-mode:                   true
-rofi.terminal:                       st
-rofi.run-command:                    {cmd}
-rofi.run-shell-command:              {terminal} -e {cmd}
-rofi.ssh-client:                     ssh
-rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
-rofi.opacity:                        100
-rofi.width:                          25
-rofi.lines:                          7
-rofi.columns:                        1
-rofi.font:                           Roboto Mono 8
-rofi.drun-icon-theme:                Papirus
-!rofi.show-icons:                    true
-rofi.bw:                             1
-rofi.location:                       0
-rofi.padding:                        20
-rofi.levenshtein-sort:               true
-rofi.case-sensitive:                 false
-rofi.fuzzy:                          false
-rofi.line-margin:                    10
-rofi.separator-style:                none
-rofi.hide-scrollbar:                 true
-rofi.markup-rows:                    false
-rofi.scrollbar-width:                0
-rofi.color-enabled:                  true
-!rofi.theme:                          .config/rofi/nord
+xterm*faceName: Iosevka Nerd Font:antialias=true:autohint=true
+xterm*faceSize: 12
+xterm*internalBorder: 10
+xterm*vt100*geometry: 70x20
+xterm*saveLines: 16384
+xterm*loginShell: true
+xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+xterm*termName: xterm-256color
+xterm*eightBitInput: false
