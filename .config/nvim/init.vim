@@ -14,16 +14,17 @@ Plug '844196/lightline-badwolf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-python/python-syntax'
-Plug 'jreybert/vimagit'
-Plug 'severin-lemaignan/vim-minimap'
-Plug 'sheerun/vim-polyglot'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " NERDTree Plugin
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:NERDTreeShowHidden=1
+
+" deoplete.nvim Plugin
+let g:deoplete#enable_at_startup = 1
 
 " Lightline Plugin
 let g:lightline = {
@@ -50,18 +51,18 @@ set nocompatible
 set noshowmode
 
 " Tabs
-set expandtab
+"set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" syntax highlighting
+" Syntax highlighting
 syntax on
 
-" line numbers
+" Line numbers
 set number
 
-" line & column dispaly
+" Line & column dispaly
 set ruler
 
 " Status bar
@@ -84,9 +85,18 @@ set noswapfile
 " Mouse support
 set mouse=a
 
-" split to right & below
+" Split to right & below
 set splitright
 set splitbelow
+
+" Save the current buffer using the leader key
+noremap <leader>w :w<CR>
+
+" Save and exit using the leader key
+noremap <leader>e :wq<CR>
+
+" Exit without saving using the leader key
+noremap <leader>q :q!<CR>
 
 " Clipboard copy/paste/cut
 if has ('unnamedplus')
@@ -104,4 +114,3 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
-
