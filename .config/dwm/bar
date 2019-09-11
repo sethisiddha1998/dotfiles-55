@@ -5,44 +5,41 @@ print_power() {
   battery="$(cat /sys/class/power_supply/BAT0/capacity)"
   timer="$(acpi -b | grep "Battery" | awk '{print $5}' | cut -c 1-5)"
   if [ "${status}" == 1 ]; then
-    echo -ne " ${battery}% "
+    echo -ne "\x04\x01${battery}%"
   else
-    echo -ne " ${battery}%"
+    echo -ne "\x04\x01${battery}%"
   fi
 }
 
 print_wifiqual() {
   wifissid="$(nmcli -t -f NAME connection show --active)"
-  wifiperc="$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70) "%" }')"
-  echo -ne "${wifiperc} ${wifissid}"
+  wifiperc="$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) "%" }')"
+  echo -ne "\x04\x01${wifiperc} ${wifissid}"
 }
 
 print_volume(){
     mix=`amixer get Master | tail -1`
     vol="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
     if [[ $mix == *\[off\]* ]]; then
-      echo -e " Muted"
+      echo -ne "\x04\x01Muted"
     elif [[ $mix == *\[on\]* ]]; then
-      echo -e " ${vol}%"
+      echo -ne "\x04\x01${vol}%"
     else
-      echo -e "VOL: ---"
+      echo -ne "VOL: ---"
     fi
 }
 
 print_date() {
   date="$(date "+%a %d %b")"
-  echo -ne " ${date}"
+  echo -ne "\x04\x01${date}"
 }
 
 print_time() {
   time="$(date "+%H:%M")"
-  echo -ne " ${time}"
+  echo -ne "\x04\x01${time}"
 }
 
 while true; do
-  # Pipe to status bar, not indented due to printing extra spaces/tabs
-  xsetroot -name " $(print_wifiqual) | $(print_power) | $(print_volume) | $(print_date) | $(print_time) "
-  # loop stats every 1 second
+    xsetroot -name "$(print_wifiqual) $(print_power) $(print_volume) $(print_date) $(print_time)"
   sleep 1
- done
- 
+done
