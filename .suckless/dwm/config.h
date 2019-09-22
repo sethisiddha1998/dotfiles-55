@@ -13,19 +13,19 @@ static const char *fonts[]            = {
     "siji:size=12:antialias=true:autohint=true"
 };
 static const char dmenufont[]         = "crisp:size=12:antialias=true:autohint=true";
-static const char normfgcolor[]       = "#f8f6f2";
-static const char normbgcolor[]       = "#1c1b1a";
-static const char normbordercolor[]   = "#1c1b1a";
-static const char selfgcolor[]        = "#0a9dff";
-static const char selbgcolor[]        = "#1c1b1a";
-static const char selbordercolor[]    = "#0a9dff";
-static const char titlefgcolor[]      = "#f8f6f2";
-static const char titlebgcolor[]      = "#1c1b1a";
-static const char titlebordercolor[]  = "#1c1b1a";
-static const char col_black[]         = "#141413";
-static const char col_red[]           = "#ff2c4b";
-static const char col_yellow[]        = "#fade3e";
-static const char col_white[]         = "#d9cec3";
+static const char normfgcolor[]       = "#c6c8d1";
+static const char normbgcolor[]       = "#161821";
+static const char normbordercolor[]   = "#6b7089";
+static const char selfgcolor[]        = "#84a0c6";
+static const char selbgcolor[]        = "#161821";
+static const char selbordercolor[]    = "#84a0c6";
+static const char titlefgcolor[]      = "#89b8c2";
+static const char titlebgcolor[]      = "#161821";
+static const char titlebordercolor[]  = "#161821";
+static const char col_black[]         = "#161821";
+static const char col_red[]           = "#e27878";
+static const char col_yellow[]        = "#e2a478";
+static const char col_white[]         = "#c6c8d1";
 static const unsigned int baralpha    = OPAQUE;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]        = {

@@ -9,8 +9,7 @@ endif
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
-Plug 'sjl/badwolf'
-Plug '844196/lightline-badwolf.vim' 
+Plug 'cocopon/iceberg.vim' 
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
@@ -28,12 +27,12 @@ let g:deoplete#enable_at_startup = 1
 
 " Lightline Plugin
 let g:lightline = {
-      \ 'colorscheme': 'badwolf',
+      \ 'colorscheme': 'iceberg',
       \ }
 
 " Theme
 set background="dark"
-colorscheme badwolf
+colorscheme iceberg
 set termguicolors
 
 " Map leader to
