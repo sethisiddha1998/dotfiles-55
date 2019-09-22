@@ -37,12 +37,5 @@ fi
 # remap caps to esc
 setxkbmap -option caps:escape
 
-# start bspwm
-#exec bspwm
-
-# start cwm
-~/.config/cwm/autostart.sh &
-exec cwm -c ~/.config/cwm/cwmrc
-
 # start dwm
-#exec dwm
+exec dwm
