@@ -25,13 +25,14 @@ zplugin light zdharma/fast-syntax-highlighting
 ####
 
 # Prompt
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+autoload -U colors && colors
+PS1="%1~ $fg[blue] "
 
 # Paths
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.bin:$PATH
 
 # Defaults
+export VISUAL="nvim"
 export EDITOR="nvim"
 export TERMINAL="st"
 
@@ -79,9 +80,9 @@ zstyle ':completion:::::' completer _expand _complete _ignored _approximate # en
 # Aliases
 alias e="$EDITOR"
 alias sz="source ~/.zshrc"
-alias ls="lsd"
-alias la="ls -A"
-alias ll="ls -lA"
+alias ls="exa"
+alias la="ls -a"
+alias ll="ls -la"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias cp="cp -i"
